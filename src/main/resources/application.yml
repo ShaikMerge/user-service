@@ -6,5 +6,6 @@ spring:
     name: oms-user-service
   profiles:
     include:
+      - aws
       - db
     active: local
