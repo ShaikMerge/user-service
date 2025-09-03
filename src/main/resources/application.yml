@@ -1,0 +1,10 @@
+server:
+  port: 30155
+
+spring:
+  application:
+    name: oms-user-service
+  profiles:
+    include:
+      - db
+    active: local

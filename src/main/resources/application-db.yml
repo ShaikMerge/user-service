@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: 'jdbc:mariadb://${spring.datasource.host}:${spring.datasource.port}/${spring.datasource.name}?createDatabaseIfNotExist=true&autoReconnect=true${db.ssl-params}'
+    name: user-service
+    host: localhost
+    username: root
+    password: root
+    port: 3306
+  liquibase:
+    enabled: true
+    change-log: db.changelog/db.changelog-master.yaml
+db:
+  ssl-params:
