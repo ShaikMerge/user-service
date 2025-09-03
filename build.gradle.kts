@@ -23,11 +23,22 @@ configurations {
 repositories {
 	mavenCentral()
 }
+dependencyManagement {
+
+	imports {
+		mavenBom("io.awspring.cloud:spring-cloud-aws-dependencies:3.3.0")
+		mavenBom("software.amazon.awssdk:bom:2.31.45")
+	}
+}
+
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("io.awspring.cloud:spring-cloud-aws-starter")
+	implementation("io.awspring.cloud:spring-cloud-aws-starter-secrets-manager")
+	implementation("software.amazon.awssdk:sts")
 	implementation("org.liquibase:liquibase-core")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")

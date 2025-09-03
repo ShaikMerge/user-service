@@ -1,0 +1,19 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - "optional:aws-secretsmanager:oms-secrets-manager"
+  cloud:
+    aws:
+      credentials:
+        access-key: test
+        secret-key: test
+      endpoint: http://localhost:4566
+      region:
+        static: us-east-1
+        auto: false
+      secretsmanager:
+        enabled: true
+secret:
+  key: ${key}

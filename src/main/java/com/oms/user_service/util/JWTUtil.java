@@ -3,6 +3,7 @@ package com.oms.user_service.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +14,8 @@ import java.util.Date;
 @Component
 public class JWTUtil {
 
-    private static final String SECRET =
-            "ashuiahiygsaidgsaidguidsahuidhuiahduhsauihdihiaidhsdauihsauidhdasuihdsa123456";
+    @Value("${secret.key}")
+    private String SECRET;
 
     private SecretKey getSecretKey() {
         return Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
